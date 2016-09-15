@@ -6,22 +6,15 @@ class SearchBar extends React.Component{
   }
 
   handleSubmit(event){
-    event.preventDefault
+    event.preventDefault()
     let searchedTitle = this.refs.title.value
     let searchedYear = this.refs.year.value
 
     $.ajax({
-      url: "http://www.omdbapi.com/?",
-      method: "GET",
-      data: {
-        t: searchedTitle,
-        y: searchedYear,
-        plot: "full",
-        r: "json"
-      }
+      url: "http://www.omdbapi.com/?s="+searchedTitle+"&y="+searchedYear+"&plot=full&r=json",
+      method: "GET"
     })
     .done((response) => {
-      debugger
       this.props.onSearch(response)
     })
   }
@@ -30,8 +23,8 @@ class SearchBar extends React.Component{
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input ref="title" type="text" name="t" placeholder="Movie Title"/>
-          <input ref="year" type="text" name="y" placeholder="Year"/>
+          <input ref="title" type="text"  placeholder="Movie Title"/>
+          <input ref="year" type="text"  placeholder="Year"/>
           <input type="submit" value="Search"/>
         </form>
       </div>

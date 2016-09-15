@@ -4,15 +4,16 @@ class App extends React.Component{
   constructor(){
     super()
     this.state= {
-      movie: ""
+      movies: []
+
     }
     this.displaySearchedMovie = this.displaySearchedMovie.bind(this)
   }
 
 
-  displaySearchedMovie(movie) {
+  displaySearchedMovie(movies) {
     this.setState({
-      movie: movie
+      movies: movies.Search
     })
 
   }
@@ -23,7 +24,7 @@ class App extends React.Component{
       <div>
         <h1>Hello World!</h1>
         <SearchBar onSearch={this.displaySearchedMovie} />
-        <Movie movie_info={this.state.movie} />
+        <MovieList data={this.state.movies}/>
       </div>
       )
   }
