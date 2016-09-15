@@ -1,6 +1,7 @@
 class MovieDetails extends React.Component{
   render(){
-    debugger
+
+
     return(
         <div>
           <span>Description:{this.props.data.Plot}</span><br/><br/>

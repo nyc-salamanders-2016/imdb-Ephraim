@@ -15,15 +15,16 @@ class MovieTitle extends React.Component{
 
     let id = this.props.movie_info.imdbID
     $.ajax({
-      url: "http://www.omdbapi.com/?i="+ id,
+      url: `http://www.omdbapi.com/?i=${id}`,
       method: "GET"
     })
-    .done((response) => {
-
+    .done(function(response){
+      // debugger
       this.setState({
         details: response
       })
-    })
+      // debugger
+    }.bind(this))
   }
 
   toggleDetails(){
