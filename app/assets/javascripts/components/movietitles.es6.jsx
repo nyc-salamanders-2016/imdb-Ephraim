@@ -3,7 +3,7 @@ class MovieTitle extends React.Component{
   constructor(){
     super()
     this.state = {
-      details: null,
+      details: '',
       toggle: false
     },
     this.getDetails = this.getDetails.bind(this),
